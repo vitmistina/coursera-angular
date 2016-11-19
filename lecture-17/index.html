@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html ng-app="myFirstApp">
+  <head>
+    <meta charset="utf-8">
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <title>Hello coursera</title>
+  </head>
+  <body>
+    <div class="container" ng-controller="MyFirstController">
+      <input type="text" name="" value="" ng-model="shoppingList2[0].quantity">
+      <input type="text" name="" placeholder="new item name" ng-model="newItemName">
+      <input type="text" name="" placeholder="new item quantity" ng-model="newItemQuantity">
+      <button type="button" name="button" ng-click="addToList()">Add to list</button>
+      <input type="text" name="name" value="" ng-model="search">
+      <h1>Shopping list 1</h1>
+      <ul>
+        <li ng-repeat="item in shoppingList1 | filter : search">{{ item }}</li>
+      </ul>
+      <h1>Shopping list 2</h1>
+      <ul>
+        <li ng-repeat="item in shoppingList2">Buy {{ item.quantity }} of {{ item.name }}</li>
+      </ul>
+      <h1>Shopping list 3</h1>
+      <ul>
+        <li ng-repeat="item in shoppingList2">{{ $index + 1 }}) Buy {{ item.quantity }} of {{ item.name }}</li>
+      </ul>
+    </div>
+  </body>
+</html>
