@@ -1,0 +1,9 @@
+<h3>{{ narrow.title }}</h3>
+<ul>
+  <li ng-repeat="item in narrow.found">
+      <button ng-click="narrow.onRemove({index: $index});">Remove Item</button>
+      {{ item.name }} ({{item.short_name}}), {{item.description}}
+  </li>
+</ul>
+<div class="loader"></div>
+<span class="error" ng-if="narrow.checkIfDisplayEmptyMessage()">Nothing found.<span>
