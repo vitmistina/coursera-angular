@@ -1,0 +1,16 @@
+<div ng-repeat="item in $ctrl.items.menu_items" class="col-md-6 menuItem">
+  <div class="col-md-6">
+    <span class="itemName">{{ item.name }}</span>
+  </div>
+  <div class="col-md-6">
+    <div class="col-md-12">
+      <b>Price large:</b> $ {{ item.price_large }}
+    </div>
+    <div class="col-md-12">
+      <b>Price small:</b> $ {{ item.price_small }}
+    </div>
+  </div>
+  <div class="col-md-12">
+    <b>Contains:</b> {{ item.description }}
+  </div>
+</div>
