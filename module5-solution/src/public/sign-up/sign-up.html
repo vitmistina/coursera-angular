@@ -1,0 +1,70 @@
+<div class="container">
+  <fieldset>
+      <h1>You can Sign Up here</h1>
+      <form name='regForm' novalidate>
+
+        <input type="text" name="firstName" placeholder="First name"
+          ng-model="signUp.user.firstName"
+          required
+          >
+          <span ng-if="regForm.firstName.$touched && regForm.firstName.$error.required">
+            First name is required
+          </span>
+          <!-- <span
+            ng-if="(regForm.username.$error.minlength || regForm.username.$error.required) && regForm.username.$touched">
+            Username must be at least 4 characters long
+          </span>
+          <span ng-if="regForm.username.$error.maxlength && regForm.username.$touched">
+            Username must not be longer than 10 characters
+          </span> -->
+          <br>
+
+          <input type="text" name="lastName" placeholder="Last name"
+            ng-model="signUp.user.lastName"
+            required
+            >
+            <span ng-if="regForm.lastName.$touched && regForm.lastName.$error.required">
+              Last name is required
+            </span>
+
+            <br>
+        <input type="email" name="email" placeholder="Email"
+          ng-model="signUp.user.email"
+          required>
+          <span ng-if="regForm.email.$invalid && regForm.email.$touched">
+            Must be a valid email address: handle@domain format
+          </span>
+          <br>
+
+        <input type="tel" name="phone" placeholder="Phone"
+          ng-model="signUp.user.phone"
+          ng-minlength="9"
+          required
+        >
+        <span
+          ng-if="(regForm.phone.$error.minlength || regForm.phone.$error.required) && regForm.phone.$touched">
+          Phone must be at least 9 characters long
+        </span>
+        <br>
+        <input type="text" name="favoriteDish" placeholder="Your favorite dish short_name (eg. B10)"
+          ng-model="signUp.user.favoriteDish"
+          required
+        >
+        <span ng-if="regForm.favoriteDish.$touched && regForm.favoriteDish.$error.required">
+          Favorite dish is required
+        </span>
+        <span ng-if="signUp.invalidDish">
+          No such menu number exists
+        </span>
+          <br>
+
+        <button
+          ng-disabled="regForm.$invalid"
+          ng-click="signUp.submit()">Submit</button>
+      </form>
+    </fieldset>
+
+    <div id="info" ng-if="signUp.completed">
+      Your information has been saved
+    </div>
+</div>
